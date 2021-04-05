@@ -30,7 +30,7 @@ async def now_playing(self, client):
             song = data["sched_current"]["songs"][0]["title"]
             alb = data["sched_current"]["songs"][0]["albums"][0]["name"]
             #set status to the current song and artist
-            #print(song)
+            #266B is music notes to represent "song", 1F4D6 is a bald human head to represent "author", 1F9B2 is an open book to represent "album"
             now_play = Activity(type=ActivityType.listening, name="\U0000266B "+song + "  \U0001F4D6 " + alb + "  \U0001F9B2 "+alist)
             await client.change_presence(self, activity=now_play)
             #now we wait until the end of the song to check again
